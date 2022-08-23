@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
 
-    fun commentsApi(): ApiData? {
+    fun repositoryApi(): ApiData? {
         return Retrofit.Builder()
             .baseUrl(ApiUrls.USERS_BASE_URL)
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))

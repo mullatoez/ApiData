@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import inc.verdant.apidata.adapter.CustomAdapter
 import inc.verdant.apidata.databinding.ActivityUsersBinding
 import inc.verdant.apidata.model.User
-import inc.verdant.apidata.network.RetrofitClient.commentsApi
+import inc.verdant.apidata.network.RetrofitClient.repositoryApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -17,7 +17,7 @@ class UsersActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityUsersBinding
 
-    private val api = commentsApi()
+    private val api = repositoryApi()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

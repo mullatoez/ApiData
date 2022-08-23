@@ -2,18 +2,15 @@ package inc.verdant.apidata
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import inc.verdant.apidata.adapter.CustomAdapter
 import inc.verdant.apidata.databinding.ActivityMainBinding
 import inc.verdant.apidata.model.User
-import inc.verdant.apidata.network.RetrofitClient.commentsApi
+import inc.verdant.apidata.network.RetrofitClient.repositoryApi
 import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private val api = commentsApi()
+    private val api = repositoryApi()
 
     @OptIn(DelicateCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
