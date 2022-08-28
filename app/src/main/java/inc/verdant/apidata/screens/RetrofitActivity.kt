@@ -1,6 +1,7 @@
-package inc.verdant.apidata
+package inc.verdant.apidata.screens
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import inc.verdant.apidata.adapter.BlogPostAdapter
 import inc.verdant.apidata.data.Post
 import inc.verdant.apidata.databinding.ActivityRetrofitBinding
+import inc.verdant.apidata.network.Constants.EXTRA_POST_ID
 import inc.verdant.apidata.viewmodel.MainViewModel
 
 private const val TAG = "RetrofitActivity"
@@ -36,7 +38,6 @@ class RetrofitActivity : AppCompatActivity() {
             binding.progressBar.visibility = if (it) View.VISIBLE else View.GONE
         })
 
-        blogPostAdapter = BlogPostAdapter(blogPosts)
 
         binding.recyclerview.apply {
             layoutManager = LinearLayoutManager(this@RetrofitActivity)
@@ -44,7 +45,13 @@ class RetrofitActivity : AppCompatActivity() {
 
         viewModel.posts.observe(this, Observer {
             Log.i(TAG, "Posts Size:  ${it.size}")
-            blogPostAdapter = BlogPostAdapter(it)
+            blogPostAdapter = BlogPostAdapter(it, object : BlogPostAdapter.OnItemClick {
+                override fun onItemClick(post: Post) {
+                    val intent = Intent(this@RetrofitActivity, DetailActivity::class.java)
+                    intent.putExtra(EXTRA_POST_ID, post.id)
+                    startActivity(intent)
+                }
+            })
             binding.recyclerview.adapter = blogPostAdapter
             blogPostAdapter.notifyDataSetChanged()
         })

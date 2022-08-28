@@ -1,4 +1,4 @@
-package inc.verdant.apidata
+package inc.verdant.apidata.screens
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

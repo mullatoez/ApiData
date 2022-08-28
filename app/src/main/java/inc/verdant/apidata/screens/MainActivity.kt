@@ -1,4 +1,4 @@
-package inc.verdant.apidata
+package inc.verdant.apidata.screens
 
 import android.content.Intent
 import android.os.Bundle

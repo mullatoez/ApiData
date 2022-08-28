@@ -8,7 +8,7 @@ import inc.verdant.apidata.R
 import inc.verdant.apidata.data.Post
 import inc.verdant.apidata.databinding.PostItemRowBinding
 
-class BlogPostAdapter(private val posts: List<Post>) :
+class BlogPostAdapter(private val posts: List<Post>, private val itemClickListener: OnItemClick) :
     RecyclerView.Adapter<BlogPostAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
@@ -28,9 +28,15 @@ class BlogPostAdapter(private val posts: List<Post>) :
             postIdText.text = post.id.toString()
             postTitleText.text = post.title
             postBodyText.text = post.body
-
+        }
+        holder.itemView.setOnClickListener {
+            itemClickListener.onItemClick(post)
         }
     }
 
     override fun getItemCount() = posts.size
+
+    interface OnItemClick {
+        fun onItemClick(post: Post)
+    }
 }
