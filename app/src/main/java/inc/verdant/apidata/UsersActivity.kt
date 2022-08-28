@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import inc.verdant.apidata.adapter.CustomAdapter
 import inc.verdant.apidata.databinding.ActivityUsersBinding
-import inc.verdant.apidata.model.User
+import inc.verdant.apidata.data.Userr
 import inc.verdant.apidata.network.RetrofitClient.repositoryApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -34,7 +34,7 @@ class UsersActivity : AppCompatActivity() {
             val users = api!!.getUsers()
             withContext(Dispatchers.Main){
                 if (users.isSuccessful){
-                    binding.usersRecyclerview.adapter = CustomAdapter(users.body()!! as ArrayList<User>)
+                    binding.usersRecyclerview.adapter = CustomAdapter(users.body()!! as ArrayList<Userr>)
                 }
             }
         }

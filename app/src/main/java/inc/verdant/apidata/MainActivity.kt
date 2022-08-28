@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import inc.verdant.apidata.databinding.ActivityMainBinding
-import inc.verdant.apidata.model.User
+import inc.verdant.apidata.data.Userr
 import inc.verdant.apidata.network.RetrofitClient.repositoryApi
 import kotlinx.coroutines.*
 
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
 
 
             GlobalScope.launch(Dispatchers.IO) {
-                api!!.createUser(User(name = name, password = password))
+                api!!.createUser(Userr(name = name, password = password))
             }
 
 

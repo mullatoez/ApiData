@@ -1,7 +1,7 @@
 package inc.verdant.apidata.network
 
-import inc.verdant.apidata.model.Comments
-import inc.verdant.apidata.model.User
+import inc.verdant.apidata.data.Comments
+import inc.verdant.apidata.data.Userr
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -14,11 +14,11 @@ interface ApiData {
     suspend fun getComments(): Response<List<Comments>>
 
     @GET("/users")
-    suspend fun getUsers(): Response<List<User>>
+    suspend fun getUsers(): Response<List<Userr>>
 
     @GET("/users/{id}")
-    suspend fun getSpecificUser(@Path("id") id: String): Response<User>
+    suspend fun getSpecificUser(@Path("id") id: String): Response<Userr>
 
     @POST("/users")
-    suspend fun createUser(@Body user: User): Response<User>
+    suspend fun createUser(@Body userr: Userr): Response<Userr>
 }

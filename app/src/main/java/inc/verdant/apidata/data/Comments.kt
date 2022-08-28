@@ -1,4 +1,4 @@
-package inc.verdant.apidata.model
+package inc.verdant.apidata.data
 
 import com.google.gson.annotations.SerializedName
 

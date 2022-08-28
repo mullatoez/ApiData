@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import inc.verdant.apidata.R
-import inc.verdant.apidata.model.User
+import inc.verdant.apidata.data.Userr
 
 
-class CustomAdapter(private val dataSet: ArrayList<User>) :
+class CustomAdapter(private val dataSet: ArrayList<Userr>) :
     RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
